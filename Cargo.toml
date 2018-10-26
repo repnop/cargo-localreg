@@ -1,0 +1,10 @@
+[package]
+name = "cargo-localreg"
+version = "0.1.0"
+authors = ["Wesley Norris <repnop@outlook.com>"]
+edition = "2018"
+
+[dependencies]
+structopt = "0.2.12"
+tower-web = "0.3.2"
+tokio = "0.1.11"
