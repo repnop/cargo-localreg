@@ -1,5 +1,6 @@
 use structopt::StructOpt;
 
+mod cargo_manifest;
 mod rest;
 
 #[derive(StructOpt, Debug)]
@@ -9,12 +10,17 @@ mod rest;
 )]
 enum LocalReg {
     #[structopt(name = "start", about = "Starts the local registry server")]
-    Start { port: Option<u16> },
+    Start {
+        port: Option<u16>,
+    },
     #[structopt(
         name = "publish",
         about = "Publishes the current crate to the local registry"
     )]
-    Publish {},
+    Publish,
+    Add {
+        name: String,
+    },
 }
 
 fn main() {
@@ -23,6 +29,8 @@ fn main() {
             let port = port.unwrap_or(1234);
             rest::run(port);
         }
-        LocalReg::Publish {} => {}
+        LocalReg::Publish {} => {
+            println!("{}", cargo_manifest::generate_registry_json().unwrap());
+        }
     }
 }
