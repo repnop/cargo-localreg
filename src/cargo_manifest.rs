@@ -1,11 +1,9 @@
 use cargo::{
-    core::{enable_nightly_features, package::Package, Dependency, Features, Workspace},
+    core::{enable_nightly_features, Workspace},
     CargoError, Config,
 };
-use serde_derive::Serialize;
 use serde_json;
 use std::env::current_dir;
-use std::process;
 
 pub fn generate_registry_json() -> Result<String, CargoError> {
     enable_nightly_features();

@@ -1,0 +1,7 @@
+{{
+    "dl": "file://{localdir}/dl/{{crate}}/{{version}}/{{crate}}-{{version}}.crate",
+    "allowed-registries": [
+        "https://github.com/rust-lang/crates.io-index",
+        "file://{localdir}/index"
+    ]
+}}
